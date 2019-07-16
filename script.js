@@ -33,7 +33,8 @@ function randomPoints(max){
     const point = randPoint();
     if(inCirc(point[0], point[1])) hits.in++;
     else hits.out++;
-    out.innerHTML = `Circle: ${hits.in} Square: ${hits.out}`;
+    const total = hits.in + hits.out
+    out.innerHTML = `Circle: ${hits.in} Square: ${hits.out} Total: ${total}`;
     const pi = hits.in / hits.out;
     outPI.innerHTML = `Supposed Pi: ${pi}`;
     drawPoint(point[0], point[1]);
