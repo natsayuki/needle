@@ -3,9 +3,8 @@ const out = document.querySelector('#out');
 const outPi = document.querySelector('#outPI');
 
 ctx = canvas.getContext('2d');
-ctx.fillRect(0, 0, 500, 500)
-ctx.strokeStyle = "#FF0000";
 ctx.beginPath();
+ctx.strokeRect(0, 0, 500, 500)
 ctx.arc(250, 250, 250, 0, 2 * Math.PI);
 ctx.stroke()
 
