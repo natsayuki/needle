@@ -20,7 +20,7 @@ function randPoint(){
 
 function drawPoint(x, y){
   ctx.fillStyle = "#0062ff";
-  ctx.fillRect(x, y, 3, 3)
+  ctx.fillRect(x, y, 1, 1)
 }
 
 function inCirc(x, y){
@@ -28,7 +28,8 @@ function inCirc(x, y){
 }
 
 function randomPoints(max){
-  for(let i = 0; i < max; i++){
+  const up = max > 5000? 5000: max
+  for(let i = 0; i < up; i++){
     const point = randPoint();
     if(inCirc(point[0], point[1])) hits.in++;
     else hits.out++;
@@ -37,5 +38,11 @@ function randomPoints(max){
     const pi = 4*hits.in / (hits.in + hits.out);
     outPI.innerHTML = `Supposed Pi: ${pi}`;
     drawPoint(point[0], point[1]);
+  }
+  if(max > 5000){
+
+    setTimeout(() => {
+      randomPoints(max - 5000);
+    }, .01);
   }
 }
